@@ -1,12 +1,11 @@
 Name:		fakeroot
-Version:	1.6.4
+Version:	1.8.2
 Release:	%mkrel 1
 License:	GPL
 Summary:	Gives a fake root environment
 Group:		Development/Other
 URL:		ftp://ftp.debian.org/debian/pool/main/f/fakeroot/
 Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.gz
-Patch0:		fakeroot-1.6.4-atfuncs.patch
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
@@ -23,7 +22,6 @@ If you don't understand any of this, you do not need this!
 
 %prep
 %setup -q
-%patch0 -p1 -b .atfixes
 for file in ./doc/*/*.1; do
   %{_bindir}/iconv -f latin1 -t utf8 < $file > $file.new
   %{__mv} -f $file.new $file
@@ -33,8 +31,6 @@ done
 %{__perl} -pi -e "s|-release 0|-avoid-version|g" Makefile*
 
 %build
-%define __libtoolize /bin/true
-
 %{configure2_5x} \
   --disable-dependency-tracking \
   --disable-static \
@@ -55,7 +51,7 @@ done
 
 %files
 %defattr(-,root,root,0755)
-%doc DEBUG AUTHORS README.fake BUGS debian/changelog
+%doc AUTHORS BUGS COPYING ChangeLog DEBUG INSTALL NEWS README debian/changelog
 %{_bindir}/*
 %{_libdir}/libfakeroot
 %{_mandir}/man*/*
