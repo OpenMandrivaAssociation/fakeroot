@@ -1,12 +1,15 @@
-Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.5.9
-Release:	%mkrel 2
+Version:	1.6.4
+Release:	%mkrel 1
 License:	GPL
+Summary:	Gives a fake root environment
 Group:		Development/Other
 URL:		ftp://ftp.debian.org/debian/pool/main/f/fakeroot/
-Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.bz2
+Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.gz
+Patch0:		fakeroot-1.6.4-atfuncs.patch
 BuildRequires:	libstdc++-devel
+BuildRequires:  sharutils
+BuildRequires:  util-linux-ng
 BuildRequires:	po4a
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
@@ -19,39 +22,43 @@ that provides wrappers around chown, chmod, mknod, stat, etc.
 If you don't understand any of this, you do not need this!
 
 %prep
-
 %setup -q
+%patch0 -p1 -b .atfixes
+for file in ./doc/*/*.1; do
+  %{_bindir}/iconv -f latin1 -t utf8 < $file > $file.new
+  %{__mv} -f $file.new $file
+done
 
 # anti version hack
-perl -pi -e "s|-release 0|-avoid-version|g" Makefile*
+%{__perl} -pi -e "s|-release 0|-avoid-version|g" Makefile*
 
 %build
 %define __libtoolize /bin/true
 
-%configure2_5x \
-    --enable-static=no
-
-%make
+%{configure2_5x} \
+  --disable-dependency-tracking \
+  --disable-static \
+  --libdir=%{_libdir}/libfakeroot
+%{make}
 
 %install
-rm -rf %{buildroot}
+%{__rm} -rf %{buildroot}
+%{makeinstall_std} libdir=%{_libdir}/libfakeroot
 
-%makeinstall_std
+%{__rm} %{buildroot}%{_libdir}/libfakeroot/*.la
 
 # the french man page is in man-pages-fr-1.58.0-18mdk, nuke this one to prevent file clash
-rm -rf %{buildroot}%{_mandir}/fr/man*
-
-# cleanuo
-rm -f %{buildroot}%{_libdir}/*.la
+%{__rm} -r %{buildroot}%{_mandir}/fr/man*
 
 %clean
-rm -rf %{buildroot}
+%{__rm} -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
+%defattr(-,root,root,0755)
 %doc DEBUG AUTHORS README.fake BUGS debian/changelog
 %{_bindir}/*
-%{_libdir}/libfakeroot.so
+%{_libdir}/libfakeroot
 %{_mandir}/man*/*
 %lang(es) %{_mandir}/es/man*/*
+%lang(nl) %{_mandir}/nl/man*/*
 %lang(sv) %{_mandir}/sv/man*/*
