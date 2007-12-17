@@ -10,7 +10,6 @@ BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
 BuildRequires:	po4a
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 This package is intended to enable something like: fakeroot rpm
