@@ -1,8 +1,8 @@
+Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.8.2
+Version:	1.9.2
 Release:	%mkrel 1
 License:	GPL
-Summary:	Gives a fake root environment
 Group:		Development/Other
 URL:		ftp://ftp.debian.org/debian/pool/main/f/fakeroot/
 Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.gz
@@ -21,6 +21,7 @@ that provides wrappers around chown, chmod, mknod, stat, etc.
 If you don't understand any of this, you do not need this!
 
 %prep
+
 %setup -q
 for file in ./doc/*/*.1; do
   %{_bindir}/iconv -f latin1 -t utf8 < $file > $file.new
@@ -31,11 +32,13 @@ done
 %{__perl} -pi -e "s|-release 0|-avoid-version|g" Makefile*
 
 %build
-%{configure2_5x} \
-  --disable-dependency-tracking \
-  --disable-static \
-  --libdir=%{_libdir}/libfakeroot
-%{make}
+
+%configure2_5x \
+    --disable-dependency-tracking \
+    --disable-static \
+    --libdir=%{_libdir}/libfakeroot \
+    --with-ipc=tcp
+%make
 
 %install
 %{__rm} -rf %{buildroot}
