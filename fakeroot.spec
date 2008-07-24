@@ -1,7 +1,7 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
 Version:	1.9.2
-Release:	%mkrel 1
+Release:	%mkrel 3
 License:	GPL
 Group:		Development/Other
 URL:		ftp://ftp.debian.org/debian/pool/main/f/fakeroot/
