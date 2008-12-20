@@ -1,10 +1,10 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.9.2
-Release:	%mkrel 3
+Version:	1.11.4
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
-URL:		ftp://ftp.debian.org/debian/pool/main/f/fakeroot/
+URL:		http://fakechroot.alioth.debian.org/
 Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.gz
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
