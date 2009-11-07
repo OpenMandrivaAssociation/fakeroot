@@ -1,7 +1,7 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.11.4
-Release:	%mkrel 3
+Version:	1.14.3
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://fakechroot.alioth.debian.org/
