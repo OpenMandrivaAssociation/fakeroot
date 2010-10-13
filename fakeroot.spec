@@ -1,11 +1,11 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.14.3
+Version:	1.14.4
 Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://fakechroot.alioth.debian.org/
-Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.gz
+Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.bz2
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
@@ -54,7 +54,7 @@ done
 
 %files
 %defattr(-,root,root,0755)
-%doc AUTHORS BUGS COPYING ChangeLog DEBUG INSTALL NEWS README debian/changelog
+%doc AUTHORS BUGS COPYING ChangeLog DEBUG INSTALL NEWS README 
 %{_bindir}/*
 %{_libdir}/libfakeroot
 %{_mandir}/man*/*
