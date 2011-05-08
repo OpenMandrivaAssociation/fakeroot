@@ -9,7 +9,6 @@ Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.ta
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
-BuildRequires:	po4a
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
