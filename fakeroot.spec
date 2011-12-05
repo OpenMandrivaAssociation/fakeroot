@@ -1,15 +1,14 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.14.4
-Release:	%mkrel 2
+Version:	1.18.2
+Release:	1
 License:	GPL
 Group:		Development/Other
 URL:		http://fakechroot.alioth.debian.org/
-Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.tar.bz2
+Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/%{name}_%{version}.orig.tar.bz2
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 This package is intended to enable something like: fakeroot rpm
@@ -40,16 +39,12 @@ done
 %make
 
 %install
-%{__rm} -rf %{buildroot}
 %{makeinstall_std} libdir=%{_libdir}/libfakeroot
 
 %{__rm} %{buildroot}%{_libdir}/libfakeroot/*.la
 
 # the french man page is in man-pages-fr-1.58.0-18mdk, nuke this one to prevent file clash
 %{__rm} -r %{buildroot}%{_mandir}/fr/man*
-
-%clean
-%{__rm} -rf %{buildroot}
 
 %files
 %defattr(-,root,root,0755)
@@ -60,3 +55,4 @@ done
 %lang(es) %{_mandir}/es/man*/*
 %lang(nl) %{_mandir}/nl/man*/*
 %lang(sv) %{_mandir}/sv/man*/*
+%lang(de) %{_mandir}/de/man*/*
