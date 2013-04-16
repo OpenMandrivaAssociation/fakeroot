@@ -42,7 +42,7 @@ sed -i -e "s|-release 0|-avoid-version|g" Makefile*
 rm -r %{buildroot}%{_mandir}/fr/man*
 
 %files
-%doc AUTHORS BUGS COPYING ChangeLog DEBUG INSTALL NEWS README 
+%doc AUTHORS BUGS COPYING DEBUG README 
 %{_bindir}/*
 %{_libdir}/libfakeroot
 %{_mandir}/man*/*
