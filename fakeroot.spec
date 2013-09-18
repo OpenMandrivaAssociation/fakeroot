@@ -9,6 +9,7 @@ Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.or
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
+BuildRequires:  libcap-devel
 
 %description
 This package is intended to enable something like: fakeroot rpm
