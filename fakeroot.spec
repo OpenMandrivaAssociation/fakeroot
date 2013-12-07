@@ -1,7 +1,7 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
 Version:	1.20
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Development/Other
 Url:		http://fakechroot.alioth.debian.org/
