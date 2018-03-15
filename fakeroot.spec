@@ -1,11 +1,11 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.20
-Release:	9
+Version:	1.22
+Release:	1
 License:	GPLv2
 Group:		Development/Other
 Url:		http://fakechroot.alioth.debian.org/
-Source0:	ftp://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_%{version}.orig.tar.bz2
+Source0:	http://http.debian.net/debian/pool/main/f/fakeroot/fakeroot_%{version}.orig.tar.bz2
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux-ng
@@ -30,8 +30,7 @@ done
 sed -i -e "s|-release 0|-avoid-version|g" Makefile*
 
 %build
-%configure2_5x \
-	--disable-static \
+%configure \
 	--libdir=%{_libdir}/libfakeroot \
 	--with-ipc=tcp
 %make
@@ -50,5 +49,5 @@ rm -r %{buildroot}%{_mandir}/fr/man*
 %lang(de) %{_mandir}/de/man*/*
 %lang(es) %{_mandir}/es/man*/*
 %lang(nl) %{_mandir}/nl/man*/*
+%lang(pt) %{_mandir}/pt/man*/*
 %lang(sv) %{_mandir}/sv/man*/*
-
