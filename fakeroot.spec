@@ -8,8 +8,8 @@ Url:		http://fakechroot.alioth.debian.org/
 Source0:	http://http.debian.net/debian/pool/main/f/fakeroot/fakeroot_%{version}.orig.tar.bz2
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
-BuildRequires:  util-linux-ng
-BuildRequires:  libcap-devel
+BuildRequires:  util-linux
+BuildRequires:  pkgconfig(libcap)
 
 %description
 This package is intended to enable something like: fakeroot rpm
