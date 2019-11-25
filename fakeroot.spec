@@ -1,11 +1,11 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.23
-Release:	2
+Version:	1.24
+Release:	1
 License:	GPLv2
 Group:		Development/Other
 Url:		http://fakeroot.alioth.debian.org/
-Source0:	http://http.debian.net/debian/pool/main/f/fakeroot/%{name}_%{version}.orig.tar.xz
+Source0:	http://http.debian.net/debian/pool/main/f/fakeroot/%{name}_%{version}.orig.tar.gz
 # Debian package patches, from debian.tar.xz
 Patch0: debian_eglibc-fts-without-LFS.patch
 Patch1: debian_glibc-xattr-types.patch
