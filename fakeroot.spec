@@ -1,6 +1,6 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.31
+Version:	1.32.1
 Release:	1
 License:	GPLv2
 Group:		Development/Other
