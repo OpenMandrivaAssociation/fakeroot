@@ -1,6 +1,6 @@
 Summary:	Gives a fake root environment
 Name:		fakeroot
-Version:	1.32.1
+Version:	1.32.2
 Release:	1
 License:	GPLv2
 Group:		Development/Other
@@ -53,13 +53,11 @@ sed -i -e "s|-release 0|-avoid-version|g" Makefile*
 # the french man page is in man-pages-fr-1.58.0-18mdk, nuke this one to prevent file clash
 rm -r %{buildroot}%{_mandir}/fr/man*
 
-%files
+%find_lang %{name} --with-man --all-name
+ln -s fakeroot %{buildroot}%{_bindir}/fakeroot-tcp
+
+%files -f %{name}.lang
 %doc AUTHORS BUGS COPYING DEBUG README 
 %{_bindir}/*
 %{_libdir}/libfakeroot
 %{_mandir}/man*/*
-%lang(de) %{_mandir}/de/man*/*
-%lang(es) %{_mandir}/es/man*/*
-%lang(nl) %{_mandir}/nl/man*/*
-%lang(pt) %{_mandir}/pt/man*/*
-%lang(sv) %{_mandir}/sv/man*/*
