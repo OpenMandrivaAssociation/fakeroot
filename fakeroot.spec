@@ -22,6 +22,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux
 BuildRequires:  pkgconfig(libcap)
+BuildRequires:	locales-extra-charsets
 
 %description
 This package is intended to enable something like: fakeroot rpm
