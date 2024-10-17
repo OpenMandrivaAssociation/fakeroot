@@ -4,7 +4,7 @@ Version:	1.34
 Release:	1
 License:	GPLv2
 Group:		Development/Other
-Url:		http://fakeroot.alioth.debian.org/
+Url:		https://fakeroot.alioth.debian.org/
 Source0:	http://http.debian.net/debian/pool/main/f/fakeroot/%{name}_%{version}.orig.tar.gz
 # Debian package patches, from debian.tar.xz
 #Patch0: debian_eglibc-fts-without-LFS.patch
