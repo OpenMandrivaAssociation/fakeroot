@@ -18,6 +18,11 @@ Patch4: fakeroot-inttypes.patch
 # skip t.tar test for now: https://bugzilla.redhat.com/show_bug.cgi?id=1601392
 Patch6: fakeroot-tests.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libstdc++-devel
 BuildRequires:  sharutils
 BuildRequires:  util-linux
